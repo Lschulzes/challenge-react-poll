@@ -9,7 +9,7 @@ const IndexPage = styled.div``;
 export default () => (
   <IndexPage>
     <GlobalStyles />
-    <h1>Fullstack.io React Poll Challenge</h1>
+    <h1>Decode React Poll Challenge</h1>
     <p>
       Here is some text that is on the page in a paragraph tag. The poll will
       appear within this context below.

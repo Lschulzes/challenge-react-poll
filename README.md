@@ -26,7 +26,7 @@ Here are additional notes of functionality:
 
 ![Answered Poll](./doc/answered-poll-notes.png)
 
-**Your challenge**: create the above functionality using React (in TypeScript) using this repo as a starting point.
+**Your challenge**: create the above functionality using React (in TypeScript, with React Hooks) using this repo as a starting point.
 
 ## Instructions
 
@@ -44,6 +44,7 @@ You must follow these steps for your solution to be accepted -- **forks or other
 
 - **Show a random question from the question list on each page reload**
 - **Do not install any other npm modules**
+- **No class components.** Use only React Hooks + functions.
 - Components should have their props typed ([example](./components/Poll.tsx))
 - Maintain existing code styles (prettier, etc.)
 - Any errors or missing features will disqualify the solution

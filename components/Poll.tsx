@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Answer, QandA, QandAsDocument, UserChoice } from '../types';
+import { Answer, QandA, UserChoice } from '../types';
 import PollItem from './PollItem';
 
 type Props = {
-  qandas: QandAsDocument /* q and a's -- questions and answers document */;
+  qanda: QandA;
 };
 
 const PollWrapper = styled.div`
@@ -22,12 +22,9 @@ const PollWrapper = styled.div`
   }
 `;
 
-export default function Poll({ qandas }: Props) {
+export default function Poll({ qanda }: Props) {
   const [userChoice, setUserChoice] = React.useState(USER_CHOICE_BLANK);
-  const { answers, question } = React.useMemo(
-    () => getCurrentQuestion(qandas.questions),
-    []
-  );
+  const { answers, question } = qanda;
 
   const totalVotes = answers.reduce((acc, cur) => acc + cur.votes, 0);
   const mostVoted = answers.reduce(
@@ -68,8 +65,3 @@ const USER_CHOICE_BLANK: UserChoice = {
 };
 
 const ANSWER_BLANK: Answer = { votes: 0, text: '' };
-
-const getCurrentQuestion = (questions: Array<QandA>): QandA => {
-  const index = Math.floor(Math.random() * questions.length);
-  return questions[index];
-};

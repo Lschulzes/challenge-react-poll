@@ -37,6 +37,7 @@ export default function Poll({ qanda }: Props) {
     (most, cur) => (most.votes > cur.votes ? most : cur),
     ANSWER_BLANK
   );
+  const currentTotalVotes = totalVotes + (userChoice.userHasChoosen ? 1 : 0);
 
   const handlePollItemClick = (text: string) => {
     if (userChoice.userHasChoosen) return;
@@ -51,16 +52,14 @@ export default function Poll({ qanda }: Props) {
         <PollItem
           key={answer.text}
           answer={answer}
-          totalVotes={totalVotes}
+          totalVotes={currentTotalVotes}
           isMostVoted={answer.text === mostVoted.text}
           onClick={handlePollItemClick}
           userChoice={userChoice}
         />
       ))}
 
-      <p className="vote-amount">
-        {totalVotes + (userChoice.userHasChoosen ? 1 : 0)} votes
-      </p>
+      <p className="vote-amount">{currentTotalVotes} votes</p>
     </PollWrapper>
   );
 }

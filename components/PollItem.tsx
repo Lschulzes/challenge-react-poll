@@ -89,7 +89,9 @@ export default function PollItem({
   userChoice,
   onClick,
 }: Props) {
-  const percentage = getPartialAmountPercentage(answer.votes, totalVotes);
+  const isItemChoosenByUser = userChoice.text === answer.text;
+  const itemVotes = answer.votes + (isItemChoosenByUser ? 1 : 0);
+  const percentage = getPartialAmountPercentage(itemVotes, totalVotes);
 
   return (
     <PollItemWrapper
@@ -101,7 +103,7 @@ export default function PollItem({
       <div className="answer-text">
         <span>{answer.text}</span>
 
-        {userChoice.text === answer.text && (
+        {isItemChoosenByUser && (
           <img src={require('../static/check-circle.svg')} />
         )}
       </div>

@@ -2,6 +2,14 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { Answer, UserChoice } from '../types';
 
+type Props = {
+  answer: Answer;
+  totalVotes: number;
+  isMostVoted: boolean;
+  userChoice: UserChoice;
+  onClick: (answer: string) => void;
+};
+
 type PollItemWrapperProps = {
   isMostVoted: boolean;
   percentage: string;
@@ -74,21 +82,13 @@ const PollItemWrapper = styled.div<PollItemWrapperProps>`
   }
 `;
 
-type PollItemProps = {
-  answer: Answer;
-  totalVotes: number;
-  isMostVoted: boolean;
-  userChoice: UserChoice;
-  onClick: (answer: string) => void;
-};
-
 export default function PollItem({
   answer,
   totalVotes,
   isMostVoted,
   userChoice,
   onClick,
-}: PollItemProps) {
+}: Props) {
   const percentage = getPartialAmountPercentage(answer.votes, totalVotes);
 
   return (

@@ -12,3 +12,4 @@ export type QandA = {
 export type QandAsDocument = {
   questions: QandA[];
 };
+export type UserChoice = { text: string; userHasChoosen: boolean };

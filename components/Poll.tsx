@@ -20,6 +20,12 @@ const PollWrapper = styled.div`
     color: gray;
     font-size: 1.25rem;
   }
+
+  @media (max-width: 425px) {
+    h1 {
+      font-size: 1.25rem;
+    }
+  }
 `;
 
 export default function Poll({ qanda }: Props) {

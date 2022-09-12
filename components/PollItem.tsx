@@ -60,6 +60,18 @@ const PollItemWrapper = styled.div<PollItemWrapperProps>`
       width: 100%;
     }
   }
+
+  @media (max-width: 425px) {
+    font-size: 1rem;
+
+    .answer-text {
+      gap: 0.2rem;
+
+      & > img {
+        width: 1rem;
+      }
+    }
+  }
 `;
 
 type PollItemProps = {
